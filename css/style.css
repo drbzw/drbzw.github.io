@@ -34,6 +34,26 @@ body {
   font-family: 'Times New Roman', Times, Georgia, serif;
 }
 
+/* Homepage Chinese intro paragraph in serif (Source Han Serif) */
+.about-intro {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'Songti SC', 'STSong', serif;
+}
+
+/* Georgia for English text on homepage publications and the research page */
+.en-georgia .en,
+.en-georgia .pub-list .title,
+.en-georgia .pub-list .journal,
+.en-georgia .pub-list .meta,
+.en-georgia .block-list .date,
+.en-georgia .cv-entry .cv-date,
+.en-georgia .cv-entry .cv-sub .en,
+.en-georgia .interest-item .id .en,
+.en-georgia .group-label .en,
+.en-georgia .page-header .en,
+.en-georgia .title-line .en {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
