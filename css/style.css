@@ -7,6 +7,11 @@
   --accent: #c05a2b;
   --line: #e8e3d5;
   --line-strong: #dbd4c2;
+  --font-cn-display: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-en-display: 'Times New Roman', Times, Georgia, serif;
+  --font-cn-body: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  --font-en-body: 'Source Serif 4', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-ui: 'Noto Sans SC', 'Segoe UI', Arial, sans-serif;
 }
 
 * {
@@ -23,20 +28,27 @@ html {
 body {
   background: var(--bg);
   color: var(--ink-2);
-  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  font-family: var(--font-cn-body);
   font-weight: 400;
-  font-size: 18px;
-  line-height: 1.9;
+  font-size: 16.5px;
+  line-height: 1.72;
   -webkit-font-smoothing: antialiased;
 }
 
-.en {
-  font-family: 'Times New Roman', Times, Georgia, serif;
+html[lang="en"] body {
+  font-family: var(--font-en-body);
+  font-size: 17px;
+  line-height: 1.68;
 }
 
-/* Homepage Chinese intro paragraph in serif (Source Han Serif) */
+.en {
+  font-family: var(--font-en-body);
+  letter-spacing: 0.005em;
+}
+
+/* Keep long Chinese reading text calm and compact. */
 .about-intro {
-  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'Songti SC', 'STSong', serif;
+  font-family: var(--font-cn-body);
 }
 
 /* Georgia for English text on homepage publications and the research page */
@@ -51,7 +63,12 @@ body {
 .en-georgia .group-label .en,
 .en-georgia .page-header .en,
 .en-georgia .title-line .en {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-en-body);
+}
+
+/* Homepage publication lists carry both classes on the same element. */
+.pub-list.en-georgia {
+  font-family: var(--font-en-body);
 }
 
 .container {
@@ -67,41 +84,44 @@ body {
 }
 
 .header-main {
-  padding: 56px 0 32px;
+  padding: 48px 0 28px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .name-en {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 52px;
+  font-family: var(--font-en-display);
+  font-size: 48px;
   font-weight: 700;
   color: var(--ink);
-  letter-spacing: 0.5px;
-  line-height: 1.15;
+  letter-spacing: -0.35px;
+  line-height: 1.08;
 }
 
 .name-cn {
-  font-size: 22px;
+  font-family: var(--font-cn-display);
+  font-size: 21px;
   color: var(--accent);
-  font-weight: 700;
-  margin-top: 12px;
+  font-weight: 600;
+  margin-top: 9px;
   letter-spacing: 3px;
 }
 
 .title-line {
-  margin-top: 16px;
-  font-size: 17px;
+  margin-top: 13px;
+  font-family: var(--font-ui);
+  font-size: 16px;
   color: var(--muted);
-  line-height: 2;
+  line-height: 1.72;
 }
 
 .contact-block {
   text-align: right;
-  font-size: 15px;
+  font-family: var(--font-ui);
+  font-size: 14.5px;
   color: var(--muted);
-  line-height: 2.1;
+  line-height: 1.75;
 }
 
 .contact-block a {
@@ -117,8 +137,8 @@ body {
 }
 
 .contact-links {
-  margin-top: 6px;
-  font-size: 15px;
+  margin-top: 5px;
+  font-size: 14.5px;
 }
 
 .contact-links a {
@@ -135,18 +155,19 @@ body {
 /* ===== Nav ===== */
 .site-nav {
   border-top: 1px solid var(--line);
-  padding: 14px 0 18px;
+  padding: 12px 0 14px;
   display: flex;
   align-items: center;
   gap: 4px;
+  font-family: var(--font-ui);
 }
 
 .site-nav a {
-  font-size: 16.5px;
+  font-size: 15.5px;
   font-weight: 600;
   color: var(--ink-2);
   text-decoration: none;
-  padding: 7px 16px;
+  padding: 6px 14px;
   letter-spacing: 1px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -169,8 +190,8 @@ body {
 
 .nav-lang {
   margin-left: auto;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
+  font-size: 14.5px;
+  font-family: var(--font-ui);
 }
 
 .nav-lang a {
@@ -197,22 +218,29 @@ body {
 
 /* ===== Sections ===== */
 .section {
-  padding: 52px 0;
+  padding: 42px 0;
 }
 
 .section-title {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 14px;
+  margin-bottom: 22px;
 }
 
 .section-title h2 {
-  font-size: 26px;
+  font-family: var(--font-cn-display);
+  font-size: 25px;
   color: var(--ink);
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
   white-space: nowrap;
+}
+
+html[lang="en"] .section-title h2 {
+  font-family: var(--font-en-display);
+  font-weight: 700;
+  letter-spacing: -0.1px;
 }
 
 .section-title .line {
@@ -222,7 +250,8 @@ body {
 }
 
 .section-title .more {
-  font-size: 15px;
+  font-family: var(--font-ui);
+  font-size: 14px;
   color: var(--accent);
   text-decoration: none;
   white-space: nowrap;
@@ -235,7 +264,7 @@ body {
 /* ===== Hero / About ===== */
 .about {
   display: flex;
-  gap: 44px;
+  gap: 38px;
   align-items: flex-start;
 }
 
@@ -257,9 +286,10 @@ body {
 }
 
 .about-text p {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--ink-2);
-  margin-bottom: 18px;
+  line-height: 1.72;
+  margin-bottom: 14px;
 }
 
 .about-text p:last-child {
@@ -268,22 +298,24 @@ body {
 
 .about-text .en {
   color: var(--muted);
-  font-size: 16.5px;
+  font-size: 16.25px;
+  line-height: 1.62;
 }
 
 .keywords {
-  margin-top: 22px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .keyword {
-  font-size: 15px;
+  font-family: var(--font-ui);
+  font-size: 14px;
   color: var(--ink-2);
   border: 1px solid var(--line-strong);
   border-radius: 20px;
-  padding: 5px 18px;
+  padding: 4px 15px;
   background: var(--bg);
 }
 
@@ -302,7 +334,7 @@ body {
 }
 
 .stat {
-  padding: 30px 20px;
+  padding: 24px 18px;
   text-align: center;
   border-right: 1px solid var(--line);
 }
@@ -312,15 +344,16 @@ body {
 }
 
 .stat .num {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;
+  font-family: var(--font-en-display);
+  font-size: 37px;
   font-weight: 700;
   color: var(--accent);
   line-height: 1.2;
 }
 
 .stat .label {
-  font-size: 15px;
+  font-family: var(--font-ui);
+  font-size: 14px;
   color: var(--muted);
   margin-top: 6px;
   letter-spacing: 1px;
@@ -332,10 +365,10 @@ body {
 }
 
 .pub-list li {
-  padding: 16px 0;
+  padding: 13px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 17.5px;
-  line-height: 1.9;
+  font-size: 16.5px;
+  line-height: 1.7;
 }
 
 .pub-list li:last-child {
@@ -348,14 +381,14 @@ body {
 }
 
 .pub-list .journal {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-en-body);
   font-style: italic;
   color: var(--muted);
 }
 
 .pub-list .meta {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 16px;
+  font-family: var(--font-en-body);
+  font-size: 15.5px;
   color: var(--muted);
 }
 
@@ -375,10 +408,11 @@ body {
 
 .news-list li {
   display: flex;
-  gap: 18px;
-  padding: 18px 0;
+  gap: 16px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 16.5px;
+  font-size: 16px;
+  line-height: 1.65;
   align-items: baseline;
 }
 
@@ -387,7 +421,7 @@ body {
 }
 
 .news-date {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-en-display);
   color: var(--accent);
   font-size: 15.5px;
   white-space: nowrap;
@@ -404,22 +438,23 @@ body {
 
 /* ===== Footer ===== */
 .site-footer {
-  margin-top: 40px;
+  margin-top: 28px;
   background: var(--bg-gradient);
   border-top: 1px solid var(--line);
-  padding: 26px 0 34px;
+  padding: 22px 0 28px;
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 15px;
+  font-family: var(--font-ui);
+  font-size: 14px;
   color: var(--muted);
 }
 
 .footer-inner .en {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-en-body);
 }
 
 /* ===== Responsive ===== */
@@ -600,18 +635,25 @@ body {
 
 /* ===== Sub-page common ===== */
 .page-header {
-  padding: 40px 0 8px;
+  padding: 34px 0 6px;
 }
 
 .page-header h1 {
-  font-size: 30px;
+  font-family: var(--font-cn-display);
+  font-size: 28px;
   color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+html[lang="en"] .page-header h1 {
+  font-family: var(--font-en-display);
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: -0.1px;
 }
 
 .page-header .en {
-  font-size: 17px;
+  font-size: 16px;
   color: var(--muted);
   margin-top: 6px;
 }
@@ -622,7 +664,7 @@ body {
 }
 
 .block-list li {
-  padding: 18px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -631,7 +673,7 @@ body {
 }
 
 .block-list .bt {
-  font-size: 17.5px;
+  font-size: 17px;
   color: var(--ink);
   font-weight: 600;
 }
@@ -639,29 +681,53 @@ body {
 .block-list .bt .en {
   font-weight: 400;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 15.5px;
 }
 
 .block-list .bd {
-  font-size: 16.5px;
+  font-size: 16px;
   color: var(--ink-2);
   margin-top: 4px;
-  line-height: 1.85;
+  line-height: 1.68;
 }
 
 .block-list .bm {
-  font-size: 15px;
+  font-family: var(--font-ui);
+  font-size: 14.5px;
   color: var(--muted);
   margin-top: 3px;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 .block-list.honors-list .bt {
-  font-size: 16.5px;
+  font-size: 16.25px;
 }
 
 .block-list.honors-list .bm {
-  font-size: 15.5px;
+  font-size: 14.5px;
+}
+
+html[lang="zh-CN"] .honors-list .bm.en {
+  font-family: var(--font-en-body);
+}
+
+html[lang="en"] .honors-list .bm {
+  font-family: var(--font-cn-body);
+}
+
+.honors-list li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+}
+
+.honor-year {
+  font-family: var(--font-en-display);
+  font-size: 14.5px;
+  color: var(--accent);
+  line-height: 1.5;
+  white-space: nowrap;
 }
 
 .block-list .bd a,
@@ -676,7 +742,7 @@ body {
 }
 
 .block-list .date {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-en-display);
   font-size: 15px;
   color: var(--accent);
   margin-left: 8px;
@@ -685,12 +751,17 @@ body {
 
 /* ===== Group label (sub-section) ===== */
 .group-label {
-  font-size: 18px;
+  font-family: var(--font-cn-display);
+  font-size: 17.5px;
   color: var(--accent);
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 8px 0 4px;
-  padding-top: 14px;
+  margin: 6px 0 3px;
+  padding-top: 11px;
+}
+
+html[lang="en"] .group-label {
+  font-family: var(--font-en-display);
 }
 
 .group-label:first-of-type {
@@ -702,40 +773,40 @@ body {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 16px;
 }
 
 .card-item {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 22px 24px;
+  padding: 18px 20px;
 }
 
 .card-item h3 {
-  font-size: 18px;
+  font-size: 17.5px;
   color: var(--ink);
   font-weight: 700;
 }
 
 .card-item .en {
-  font-size: 15.5px;
+  font-size: 15px;
   color: var(--muted);
   margin-top: 4px;
 }
 
 .card-item p {
-  font-size: 15.5px;
+  font-size: 15px;
   color: var(--ink-2);
-  margin-top: 10px;
-  line-height: 1.85;
+  margin-top: 8px;
+  line-height: 1.68;
 }
 
 /* ===== Interest items ===== */
 .interest-item {
   display: flex;
-  gap: 18px;
-  padding: 18px 0;
+  gap: 16px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
   align-items: baseline;
 }
@@ -745,7 +816,7 @@ body {
 }
 
 .interest-item .it {
-  font-size: 17.5px;
+  font-size: 17px;
   color: var(--accent);
   font-weight: 700;
   min-width: 140px;
@@ -753,9 +824,9 @@ body {
 }
 
 .interest-item .id {
-  font-size: 16px;
+  font-size: 15.5px;
   color: var(--ink-2);
-  line-height: 1.85;
+  line-height: 1.68;
 }
 
 .interest-item .id .en {
@@ -766,7 +837,8 @@ body {
 .simple-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 16px;
+  font-family: var(--font-ui);
+  font-size: 15px;
 }
 
 .simple-table th {
@@ -780,10 +852,10 @@ body {
 }
 
 .simple-table td {
-  padding: 13px 14px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--line);
   color: var(--ink-2);
-  line-height: 1.8;
+  line-height: 1.6;
   vertical-align: top;
 }
 
@@ -801,10 +873,10 @@ body {
   justify-content: space-between;
   align-items: baseline;
   gap: 20px;
-  padding: 13px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 16.5px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.62;
 }
 
 .cv-entry:last-child {
@@ -819,11 +891,11 @@ body {
 .cv-entry .cv-sub {
   color: var(--ink-2);
   margin-top: 2px;
-  font-size: 15.5px;
+  font-size: 15px;
 }
 
 .cv-entry .cv-date {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-en-display);
   color: var(--accent);
   font-size: 15px;
   white-space: nowrap;
@@ -841,22 +913,23 @@ body {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 26px 28px;
+  padding: 22px 24px;
 }
 
 .contact-card h3 {
-  font-size: 18px;
+  font-family: var(--font-cn-display);
+  font-size: 17.5px;
   color: var(--ink);
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
 .contact-card .row {
   display: flex;
   gap: 14px;
-  padding: 9px 0;
-  font-size: 16.5px;
+  padding: 7px 0;
+  font-size: 16px;
   color: var(--ink-2);
   align-items: baseline;
   border-bottom: 1px solid var(--line);
@@ -886,9 +959,10 @@ body {
   display: inline-block;
   background: var(--accent);
   color: #fff !important;
-  padding: 10px 26px;
+  padding: 9px 22px;
   border-radius: 8px;
-  font-size: 16px;
+  font-family: var(--font-ui);
+  font-size: 15px;
   text-decoration: none !important;
   letter-spacing: 1px;
   margin: 6px 10px 0 0;
@@ -903,4 +977,57 @@ body {
   background: transparent;
   color: var(--accent) !important;
   border: 1.5px solid var(--accent);
+}
+
+/* These refinements stay after component rules so mobile declarations win. */
+@media (max-width: 900px) {
+  .interest-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .interest-item .it {
+    min-width: 0;
+    font-size: 15.5px;
+  }
+
+  .cv-entry {
+    flex-wrap: wrap;
+  }
+
+  .contact-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 28px 0 6px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .block-list .bt .en {
+    display: block;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 22px;
+  }
+
+  .honors-list li {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .pdf-btn {
+    display: block;
+    text-align: center;
+    margin: 6px 0 0;
+  }
 }
