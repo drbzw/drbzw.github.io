@@ -62,7 +62,9 @@ html[lang="en"] body {
 .en-georgia .interest-item .id .en,
 .en-georgia .group-label .en,
 .en-georgia .page-header .en,
-.en-georgia .title-line .en {
+.en-georgia .title-line .en,
+.en-georgia .block-list .bt,
+.en-georgia .block-list .bm {
   font-family: var(--font-en-body);
 }
 
